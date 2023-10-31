@@ -1,0 +1,58 @@
+﻿@model SachOnline.Models.DONDATHANG
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="text-align:center;">Xem thông tin</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Thanh Toán
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DaThanhToan)
+        </dd>
+
+        <dt>
+           Tình trạng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TinhTrangGiaoHang)
+        </dd>
+
+        <dt>
+            Ngày đặt
+        </dt>
+
+        <dd>
+            @Html.FormatValue(Model.NgayDat, "{0:dd/MM/yyyy}")
+        </dd>
+
+        <dt>
+            Ngày giao
+        </dt>
+
+        <dd>
+            @Html.FormatValue(Model.NgayGiao, "{0:dd/MM/yyyy}")
+        </dd>
+
+        <dt>
+            Tên khách hàng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KHACHHANG.HoTen)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.MaDonHang }) |
+    @Html.ActionLink("VỀ TRANG QUẢN LÝ ĐƠN HÀNG", "Index")
+</p>

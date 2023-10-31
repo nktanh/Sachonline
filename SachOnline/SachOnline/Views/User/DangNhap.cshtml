@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "DangNhap";
+}
+
+<style type="text/css">
+    td {
+        height: 40px;
+    }
+    .ak{
+        text-align:center
+    }
+</style>
+<h2 style="text-align:center" ">ĐĂNG NHẬP</h2>
+<div style="display:flex; justify-content:center;align-items:center;text-align:center">
+    <h4 style="color:red; text-align:center;">@ViewBag.ThongBao</h4>
+    <table align="center">
+        @using (Html.BeginForm("DangNhap", "User"))
+        {
+            @Html.ValidationSummary(true)
+            <tr>
+                <td>Tên đăng nhập: </td>
+                <td>
+                    @Html.TextBox("TenDN") @ViewData["Err1"]
+                </td>
+            </tr>
+            <tr>
+                <td>Mật khẩu: </td>
+                <td>
+                    @Html.Password("MatKhau") @ViewBag.Err2
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Đăng nhập" />
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+
+

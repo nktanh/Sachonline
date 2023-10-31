@@ -1,0 +1,84 @@
+﻿@model SachOnline.Models.KHACHHANG
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <label class="control-label col-md-2">Tên khách hang:</label>
+            <div class="col-md-10">
+                <input type="text" size="70" name="sHoTen" value="@ViewBag.HoTen"
+                       required />
+                @ViewBag.ThongBao1
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Tài khoản:</label>
+            <div class="col-md-10">
+                <input type="text" size="70" name="sTaiKhoan" value="@ViewBag.ThongBao"
+                       required />
+                @ViewBag.ThongBao
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Mật khẩu:</label>
+            <div class="col-md-10">
+                <input type="text" size="70" name="sMatKhau" value="@ViewBag.MatKhau"
+                       required />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Email:</label>
+            <div class="col-md-10">
+                <input type="text" size="70" name="sEmail" required />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Dịa chỉ:</label>
+            <div class="col-md-10">
+                <input type="text" size="70" name="sDiaChi" value="@ViewBag.DiaChi"
+                       required />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Điện thoại:</label>
+            <div class="col-md-10">
+                <input type="text" size="70" name="iDienThoai" value="@ViewBag.HoTen"
+                       required />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Ngày sinh:</label>
+            <div class="col-md-10">
+                <input type="date" name="dNgaySinh" required />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+    @ViewBag.ThongBao2
+}
+
+<div>
+    @Html.ActionLink("VỀ TRANG QUẢN LÝ SÁCH", "Index")
+</div>

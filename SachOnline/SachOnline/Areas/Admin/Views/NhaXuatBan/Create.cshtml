@@ -1,0 +1,52 @@
+﻿@model SachOnline.Models.NHAXUATBAN
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Thêm nhà xuất bản</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <label class="control-label col-md-2">Tên NXB:</label>
+                <div class="col-md-10">
+                    <input type="text" size="70" name="sTenChuDe" value="@ViewBag.HoTen"
+                           required />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">Địa chỉ:</label>
+                <div class="col-md-10">
+                    <input type="text" size="70" name="sDiaChi" value="@ViewBag.HoTen"
+                           required />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">Số điện thoại:</label>
+                <div class="col-md-10">
+                    <input type="text" size="70" name="sDienThoai" value="@ViewBag.HoTen"
+                           required />
+                </div>
+            </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Tạo" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Về trang quản lý NXB", "Index")
+</div>

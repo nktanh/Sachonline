@@ -1,0 +1,68 @@
+﻿@model SachOnline.Models.DONDATHANG
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h2 style="text-align:center;">Tạo đơn hàng</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <label class="control-label col-md-2">Thanh Toán</label>
+                    <div class="col-md-10">
+                        @Html.DropDownList("sDaThanhToan", new SelectList(
+                            new List<SelectListItem>
+                            {
+                        new SelectListItem { Text = "False", Value = "false" },
+                                new SelectListItem { Text = "True", Value = "true" },
+                                
+                            }, "Value", "Text"), new { @class = "form-control" })
+                    </div>
+                </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">Tình trạng</label>
+        <div class="col-md-10">
+            <input type="text" size="70" name="sTinhTrangGiaoHang" value=""
+                   required />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Ngày đặt</label>
+        <div class="col-md-10">
+            <input type="date" name="dNgayDat" required />
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">Ngày giao</label>
+        <div class="col-md-10">
+            <input type="date" name="dNgayGiao" required />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">Khách hàng</label>
+        <div class="col-md-10">
+            @*Hiển thị ViewBag.MaCD vào dropdownlist*@
+            @Html.DropDownList("MaKH")
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Tạo" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Quay lại", "Index")
+</div>
