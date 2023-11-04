@@ -11,9 +11,13 @@
         text-align:center
     }
 </style>
-<h2 style="text-align:center" ">ĐĂNG NHẬP</h2>
-<div style="display:flex; justify-content:center;align-items:center;text-align:center">
-    <h4 style="color:red; text-align:center;">@ViewBag.ThongBao</h4>
+<div style="font-size: 20px">
+    <br />
+    <br />
+    <br />
+    <h2>ĐĂNG NHẬP</h2>
+
+    <h2 style="color:red; text-align:left;">@ViewBag.ThongBao</h2>
     <table align="center">
         @using (Html.BeginForm("DangNhap", "User"))
         {
@@ -27,7 +31,8 @@
             <tr>
                 <td>Mật khẩu: </td>
                 <td>
-                    @Html.Password("MatKhau") @ViewBag.Err2
+                    @Html.Password("MatKhau")@ViewBag.Err2
+
                 </td>
             </tr>
             <tr>
@@ -36,8 +41,8 @@
                     <input type="submit" value="Đăng nhập" />
                 </td>
             </tr>
+
         }
     </table>
 </div>
-
 

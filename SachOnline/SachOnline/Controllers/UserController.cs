@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -103,17 +104,27 @@ namespace SachOnline.Controllers
             else
             {
                 KHACHHANG kh= db.KHACHHANGs.SingleOrDefault(n=>n.TaiKhoan==sTenDN && n.MatKhau==sMatKhau);
+                ADMIN admin = db.ADMINs.SingleOrDefault(n => n.TenDN == sTenDN && n.MatKhau == sMatKhau);
                 if (kh != null)
                 {
                     Session["TaiKhoan"] = kh;
                     return RedirectToAction("GioHang", "GioHang");
                 }
-
+                else if (admin != null)
+                {
+                    Session["Admin"] = kh;
+                    return RedirectToAction("Index", "Home", new {area ="Admin"});
+                }
                 else
                 { ViewBag.ThongBao = "Tên đăng nhập hoặc mật khẩu không đúng"; }
 
             }
             return View();
+        }
+        public ActionResult DangXuat()
+        {
+            Session.Clear();
+            return RedirectToAction("Index","SachOnline");
         }
 
     }

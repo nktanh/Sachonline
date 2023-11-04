@@ -4,10 +4,10 @@
     ViewBag.Title = "Create";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
-  
+
+
 <h2>THÊM SÁCH</h2>
 @*Thêm thuộc tính cho form để upload ảnh*@
-<script src="~/ckeditor/ckeditor.js"></script>
 @using (Html.BeginForm("Create", "Sach", FormMethod.Post, new { @enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
@@ -27,7 +27,7 @@
             <label class="control-label col-md-2">Mô tả:</label>
             <div class="col-md-10">
                 <textarea name="sMoTa" id="mota">@ViewBag.MoTa</textarea>
-                <script>CKEDITOR.replace('mota');</script>
+
             </div>
         </div>
 
@@ -87,3 +87,4 @@
 
 
 <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+<script>CKEDITOR.replace('mota');</script>
